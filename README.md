@@ -148,7 +148,7 @@ Supported Algorithms
                           yescryptr8g   Koto (KOTO)
                           yescryptr16   Eli
                           yescryptr32   WAVI
-                          yespower      Cryply
+                          yespower      Cryply, MagpieCoin (MGPC)
                           yespowerr16   Yenten (YTN)
                           yespower-b2b  generic yespower + blake2b
                           zr5           Ziftr
@@ -157,6 +157,8 @@ Many variations of scrypt based algos can be mine by specifying their
 parameters:
 
 scryptn2: --algo scrypt --param-n 1048576
+
+magpiecoin: --algo yespower --param-n 2048 -param-r 32 --param-key "Magpies are birds of the Corvidae family."
 
 cpupower: --algo yespower --param-key "CPUpower: The number of CPU working or available for proof-of-work mining"
 
