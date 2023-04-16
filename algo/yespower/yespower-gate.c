@@ -207,6 +207,33 @@ bool register_yescryptr8_algo( algo_gate_t* gate )
    return true;
 }
 
+
+
+bool register_yespowerMGPC_algo( algo_gate_t* gate )
+{
+  yespower_params.version = YESPOWER_1_0;
+
+   yespower_params.N = 2048;
+
+   yespower_params.r = 32;
+
+
+  yespower_params.pers = "Magpies are birds of the Corvidae family.";
+  yespower_params.perslen = 41;
+
+  applog( LOG_NOTICE,"YespowerMGPC parameters: N= %d, R= %d", yespower_params.N,
+                                                           yespower_params.r );
+  if ( yespower_params.pers )
+     applog( LOG_NOTICE,"Key= \"%s\"\n", yespower_params.pers );
+
+  gate->optimizations = SSE2_OPT | SHA_OPT;
+  gate->scanhash      = (void*)&scanhash_yespower;
+  gate->hash          = (void*)&yespower_hash;
+  opt_target_factor = 65536.0;
+  return true;
+};
+
+
 bool register_yescryptr16_algo( algo_gate_t* gate )
 {
    gate->optimizations = SSE2_OPT | SHA_OPT;
